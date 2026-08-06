@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdint>
 
 // AAA: Almost Always Auto
 // DRY: Dont Repeat Yourself

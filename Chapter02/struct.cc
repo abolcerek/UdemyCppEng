@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdint>
 
 enum class Status
 {
@@ -22,7 +23,7 @@ int main()
     std::cout << user1.id << '\n';
 
     std::cout << (std::int32_t)user1.status << '\n';
-    std::cout << static_cast<std::int32_t>(user1.status) << '\n';
+    std::cout << static_cast<std::int64_t>(user1.status) << '\n';
 
     return 0;
 }

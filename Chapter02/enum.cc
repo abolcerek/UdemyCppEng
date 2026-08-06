@@ -16,7 +16,7 @@ enum class UserPermission
 
 int main()
 {
-    Status s1 = Status::Unkown;
+    Status s1 = Status::Connected;
 
     switch (s1)
     {
