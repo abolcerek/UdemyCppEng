@@ -1,9 +1,8 @@
 #include <cmath>
+#include <numbers>
 
 #include "Shape.hpp"
-
 #include "distance.hpp"
-#include "utils.hpp"
 
 double Shape::midpoint_distance(const Shape *other) const
 {
@@ -25,12 +24,19 @@ Circle::Circle(std::uint32_t x_midpoint_,
 
 double Circle::get_area() const
 {
-    return pi * std::pow(radius, 2.0);
+    return std::numbers::pi * std::pow(radius, 2.0);
 }
 
 Coordinate Circle::get_midpoint() const
 {
     return {x_midpoint, y_midpoint};
+}
+
+double Circle::midpoint_distance(const Shape *other) const {
+    const auto [x_midpoint1, y_midpoint1] = this->get_midpoint();
+    const auto [x_midpoint2, y_midpoint2] = other->get_midpoint();
+    const auto distance = get_distance(x_midpoint1, y_midpoint1, x_midpoint2, y_midpoint2);
+    return distance;
 }
 
 Rectangle::Rectangle(std::uint32_t x1_,
@@ -58,4 +64,11 @@ Coordinate Rectangle::get_midpoint() const
     const auto y_midpoint = (y1 + y2) / 2U;
 
     return {x_midpoint, y_midpoint};
+}
+
+double Rectangle::midpoint_distance(const Shape *other) const {
+    const auto [x_midpoint1, y_midpoint1] = this->get_midpoint();
+    const auto [x_midpoint2, y_midpoint2] = other->get_midpoint();
+    const auto distance = get_distance(x_midpoint1, y_midpoint1, x_midpoint2, y_midpoint2);
+    return distance;
 }

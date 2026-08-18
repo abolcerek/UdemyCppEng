@@ -28,6 +28,7 @@ struct Circle : Shape
     ~Circle() noexcept = default;
 
     virtual double get_area() const final;
+    virtual double midpoint_distance(const Shape *other) const;
     virtual Coordinate get_midpoint() const final;
 
     std::uint32_t x_midpoint;
@@ -44,6 +45,7 @@ struct Rectangle : Shape
     ~Rectangle() noexcept = default;
 
     virtual double get_area() const final;
+    virtual double midpoint_distance(const Shape *other) const;
     virtual Coordinate get_midpoint() const final;
 
     std::uint32_t x1;

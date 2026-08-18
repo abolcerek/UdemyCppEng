@@ -1,9 +1,9 @@
 #include <cmath>
+#include <numbers>
 
 #include "Shape.hpp"
-
 #include "distance.hpp"
-#include "utils.hpp"
+
 
 double Shape::midpoint_distance(const Shape *other) const
 {
@@ -25,7 +25,7 @@ Circle::Circle(std::uint32_t x_midpoint_,
 
 double Circle::get_area() const
 {
-    return pi * std::pow(radius, 2.0);
+    return std::numbers::pi * std::pow(radius, 2.0);
 }
 
 Coordinate Circle::get_midpoint() const
